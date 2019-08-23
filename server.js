@@ -4,6 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+require('dotenv').config();
+
+//mongodb+srv://Dev-94:<password>@sei-dssjh.azure.mongodb.net/test?retryWrites=true&w=majority
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
