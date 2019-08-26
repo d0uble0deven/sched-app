@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('/scheds');
+  res.render('scheds/index', {user: req.user});
 });
 
  // Google OAuth login route

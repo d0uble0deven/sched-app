@@ -2,7 +2,7 @@ var Sched = require('../models/sched');
 
 module.exports = {
     index,
-    new: newSched
+    create
 };
 
 function index(res, res, next) {
@@ -27,13 +27,17 @@ function index(res, res, next) {
     });
   }
     
-    
-//     ) {
-//     Sched.find({}, function(err, scheds) {
-//         res.render('scheds/index');
-//     });
-// }
 
-function newSched(res, res) {
-        res.render('scheds/new');
-    };
+function create(res, res) {
+    console.log({...req.body})
+    // convert nowShowing's checkbox of nothing or "on" to boolean
+    for (let key in req.body) {
+      if (req.body[key] === '') delete req.body[key];
+    }
+    var sched = new Sched(req.body);
+    sched.save(function(err) {
+      if (err) return res.send(err);
+      console.log(sched);
+      res.redirect('scheds/create');
+    });
+  }
