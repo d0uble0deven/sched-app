@@ -2,10 +2,10 @@ var Sched = require('../models/sched');
 
 module.exports = {
     index,
-    create
+    new: newSched
 };
 
-function index(res, res, next) {
+function index(req, res, next) {
     console.log(req.query)
     // Make the query object to use with Student.find based up
     // the user has submitted the search form or now
@@ -26,18 +26,18 @@ function index(res, res, next) {
       });
     });
   }
+
+  function newSched(req, res) {
+    res.render('scheds/new');
+  }
     
 
-function create(res, res) {
-    console.log({...req.body})
-    // convert nowShowing's checkbox of nothing or "on" to boolean
-    for (let key in req.body) {
-      if (req.body[key] === '') delete req.body[key];
-    }
-    var sched = new Sched(req.body);
-    sched.save(function(err) {
-      if (err) return res.send(err);
-      console.log(sched);
-      res.redirect('scheds/create');
-    });
-  }
+// function create(req, res) {
+//   console.log(req.body);
+//     var sched = new Sched(req.body);
+//     sched.save(function(err) {
+//       if (err) return res.send(err);
+//       console.log(sched);
+//       res.render('scheds/create');
+//     });
+//   }
