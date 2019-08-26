@@ -17,14 +17,14 @@ router.get('/', function(req, res, next) {
  router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/user',
-    failureRedirect : '/user'
+    successRedirect : '/',
+    failureRedirect : '/'
   }
 ));
 
 router.get('/logout', function(req, res){
   req.logout();
-  res.redirect('/user');
+  res.redirect('/');
 });
 
 module.exports = router;
