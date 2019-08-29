@@ -38,10 +38,12 @@ function create(req, res) {
 
 function show(req, res) {
   Sched.findById(req.params.id, function (err, scheds) {
+    console.log(scheds)
     res.render("scheds/show", {
       user: req.user,
-      scheds: [scheds]
+      scheds
     });
+    console.log(scheds)
   })
 }
 
