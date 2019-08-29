@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <link rel='stylesheet' href='public/stylesheets/styles.css' />
 </head>
-<body>
-    <h1>Scheduling App</h1>
 
-    <h2>Update <%= sched.name %></h2>
-    <ul>
-        <li>Name: <%=sched.name%></li>
-        <li>Date: <%=sched.date%></li>
-        <li>Location: <%=sched.location%></li>
-        <li>Details: <%=sched.details%></li>
-    </ul>
-    <li><a href="/scheds/<%= sched._id %>/update">Update</a></li>
+<body>
+  <h1>Scheduling App</h1>
+  <ul>
+    <li>Name: <%=scheds.name%></li>
+    <input type="text" name="name" value="<%=scheds.name%>">
+    <li>Date: <%=scheds.date%></li>
+    <input type="text" name="date" value="<%=scheds.date%>">
+    <li>Location: <%=scheds.location%></li>
+    <input type="text" name="location" value="<%=scheds.location%>">
+    <li>Details: <%=scheds.details%></li>
+    <input type="text" name="details" value="<%=scheds.details%>">
+  </ul>
+  <input href="/scheds/<%=scheds._id%>/update" type="submit" value="Update">
 </body>
+
+</html>

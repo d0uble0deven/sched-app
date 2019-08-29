@@ -1,39 +1,39 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 <head>
-  <link rel='stylesheet' href='public/stylesheets/styles.css' />
+    <link rel="stylesheet" href="public/stylesheets/styles.css" />
 </head>
+
 <body>
-        <header>
-                <% include ../partials/header %>
-<ul>
-    <li>
-    <% if(user) { %>
-        <a href="/logout"> Log Out</a>
-    <% } else { %>
-        <a href="/auth/google"> Login with Google</a>
-    <% } %>
-    </li>
-</ul>
-</header>
-<h1>Scheduling App</h1>
-<%if(scheds.length === 0) {%>
+    <header>
+        <% include ../partials/header %>
+        <ul>
+            <li>
+                <% if(user) { %>
+                <a href="/logout"> Log Out</a>
+                <% } else { %>
+                <a href="/auth/google"> Login with Google</a>
+                <% } %>
+            </li>
+        </ul>
+    </header>
+    <h1>Scheduling App</h1>
+    <%if(scheds.length === 0) {%>
     <h3>No Upcoming Events</h3>
-<%} else {%>      
-<%scheds.forEach(function(sched, idx){%>
+    <%} else {%> <%scheds.forEach(function(sched, idx){%>
     <ul>
-    <li>Name: <%=sched.name%></li>
-    <li>Date: <%=sched.date%></li>
-    <li>Location: <%=sched.location%></li>
-    <li>Details: <%=sched.details%></li>
-    <li><a href="scheds/show">Update Event</a></li>
-
-
-    <li><a href="/scheds/<%= sched._id %>/delete">Delete</a></li>
-
+        <li>Name: <%=sched.name%></li>
+        <li>Date: <%=sched.date%></li>
+        <li>Location: <%=sched.location%></li>
+        <li>Details: <%=sched.details%></li>
+        <li><a href="scheds/show">Show</a></li>
+        <li>
+            <form action="/scheds/<%= sched._id %>?_method=DELETE" method="POST">
+                DELETE: <input type="submit" />
+            </form>
+        </li>
     </ul>
-<%})%>
-<%}%>
-
-</body>
+    <%})%> <%}%>
+  </body>
 </html>

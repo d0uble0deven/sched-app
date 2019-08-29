@@ -5,28 +5,32 @@ var router = express.Router();
 const Sched = require('../models/sched')
 
 /* GET home page. */
-router.get('/', function(req, res) {
-  Sched.find({}, function(err, thing){
-    res.render('scheds/index', {user: req.user, scheds: thing });
+router.get('/', function (req, res) {
+  Sched.find({}, function (err, events) {
+    if (err) res.send(err)
+    res.render('scheds/index', {
+      user: req.user,
+      scheds: events
+    });
   })
 });
 
- // Google OAuth login route
- router.get('/auth/google', passport.authenticate(
-  'google',
-  { scope: ['profile', 'email'] }
-));
-
- // Google OAuth callback route
- router.get('/oauth2callback', passport.authenticate(
-  'google',
-  {
-    successRedirect : '/',
-    failureRedirect : '/'
+// Google OAuth login route
+router.get('/auth/google', passport.authenticate(
+  'google', {
+    scope: ['profile', 'email']
   }
 ));
 
-router.get('/logout', function(req, res){
+// Google OAuth callback route
+router.get('/oauth2callback', passport.authenticate(
+  'google', {
+    successRedirect: '/',
+    failureRedirect: '/'
+  }
+));
+
+router.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/');
 });
