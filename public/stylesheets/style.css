@@ -3,8 +3,13 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: blanchedalmond;
   color: rgba(10, 10, 10, .7);
+  text-decoration: none;
 }
 
 a {
   color: #00B7FF;
+}
+
+nav {
+  display: inline-block;
 }
