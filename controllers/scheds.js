@@ -36,17 +36,29 @@ function create(req, res) {
   });
 }
 
-function show(req, res) {
-  Sched.findById(req.params.id, function (err, scheds) {
-    console.log(scheds)
-    res.render("scheds/show", {
-      user: req.user,
-      scheds
-    });
-    console.log(scheds)
-  })
-}
+// function show(req, res) {
+//   Sched.findById(req.params.id, function (err, sched) {
+//     console.log(sched)
+//     res.render("scheds/show", {
+//       user: req.user,
+//       sched
+//     });
+//     console.log(sched)
+//   })
+// }
 
+
+function show(req, res) {
+  Sched.findById(req.params.id)
+    .exec(function (err, sched) {
+      console.log(sched)
+      res.render("scheds/show", {
+        user: req.user,
+        sched
+      });
+      console.log(sched)
+    });
+}
 
 // function update(req, res) {
 //   Sched.find(req.params.id, function (err, x) {

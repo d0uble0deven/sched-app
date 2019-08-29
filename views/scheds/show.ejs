@@ -2,22 +2,24 @@
 <html>
 
 <head>
-  <link rel='stylesheet' href='public/stylesheets/styles.css' />
+  <link rel='stylesheet' href='stylesheets/style.css' />
 </head>
 
 <body>
   <h1>Scheduling App</h1>
-  <ul>
-    <li>Name:</li>
-    <input type="text" name="name">
-    <li>Date:</li>
-    <input type="text" name="date">
-    <li>Location:</li>
-    <input type="text" name="location">
-    <li>Details:</li>
-    <input type="text" name="details">
-  </ul>
-  <input type="submit" value="Update">
+  <form action="/scheds/<%=sched._id%>?_method=PUT" method="POST">
+
+    <ul>
+      <li>Name:</li>
+      <input type="text" name="name" value="<%=sched.name%>">
+      <li>Date:</li>
+      <input type="text" name="date" value="<%=sched.date%>">
+      <li>Location:</li>
+      <input type="text" name="location" value="<%=sched.location%>">
+      <li>Details:</li>
+      <input type="text" name="details" value="<%=sched.details%>">
+    </ul>
+  </form>
 </body>
 
 </html>
