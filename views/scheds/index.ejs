@@ -1,3 +1,8 @@
+    <!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' href='public/stylesheets/styles.css' />
+</head>
 <body>
         <header>
                 <% include ../partials/header %>
@@ -21,8 +26,10 @@
     <li>Date: <%=sched.date%></li>
     <li>Location: <%=sched.location%></li>
     <li>Details: <%=sched.details%></li>
+    <li><a href="scheds/show">Update Event</a></li>
     </ul>
 <%})%>
 <%}%>
 
 </body>
+</html>
