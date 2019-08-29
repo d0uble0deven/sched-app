@@ -1,19 +1,14 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var userSchema = new mongoose.Schema ({
-  name: String,
-  email: String,
-  googleId: String
-}, {
-  timestamps: true
-});
 
-var schedSchema = new mongoose.Schema ({
+
+var schedSchema = new Schema ({
     name: String,
-    date: Date,
-    location: String,
-    details: String
+    date: {type: Date, required: true},
+    location: {type: String, required: true},
+    details: String,
+    userId: String
 }, {
     timestamps: true
   });

@@ -1,26 +1,28 @@
 <body>
         <header>
                 <% include ../partials/header %>
-            </header>
-<h1>Scheduling App</h1>
-<!-- new html below -->
-<ul class="right">
+<ul>
     <li>
-    <% if (user) { %>
+    <% if(user) { %>
         <a href="/logout"> Log Out</a>
     <% } else { %>
         <a href="/auth/google"> Login with Google</a>
     <% } %>
     </li>
 </ul>
-<table>
-    <thead>
-        <tr>
-            <th>Name:</th>
-            <th>Date:</th>
-            <th>Location:</th>
-            <th>Details:</th>
-        </tr>
-    </thead>
-</table>
+</header>
+<h1>Scheduling App</h1>
+<%if(scheds.length === 0) {%>
+    <h3>No Upcoming Events</h3>
+<%} else {%>      
+<%scheds.forEach(function(sched, idx){%>
+    <ul>
+    <li>Name: <%=sched.name%></li>
+    <li>Date: <%=sched.date%></li>
+    <li>Location: <%=sched.location%></li>
+    <li>Details: <%=sched.details%></li>
+    </ul>
+<%})%>
+<%}%>
+
 </body>

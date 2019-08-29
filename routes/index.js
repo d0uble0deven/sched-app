@@ -2,9 +2,13 @@ var express = require('express');
 var passport = require('passport');
 var router = express.Router();
 
+const Sched = require('../models/sched')
+
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('scheds/index', {user: req.user});
+  Sched.find({}, function(err, thing){
+    res.render('scheds/index', {user: req.user, scheds: thing });
+  })
 });
 
  // Google OAuth login route
