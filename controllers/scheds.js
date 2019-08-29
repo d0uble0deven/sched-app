@@ -6,7 +6,8 @@ module.exports = {
     new: newSched,
     create,
     show,
-    update
+    update,
+    delete: deleteSched
 };
 
 
@@ -50,7 +51,7 @@ function index(req, res) {
 
 
   function update(req, res, next) {
-    let { Sched } = req.body
+    var { Sched } = req.body
     Sched.findByIdAndUpdate(req.params.id, {   
       scheds: [scheds],
       user: req.user,
