@@ -22,25 +22,27 @@
     <%if(scheds && scheds.length===0) {%>
     <h3>No Upcoming Events</h3>
     <%} else { scheds.forEach(function(sched, idx){%>
-    <ul>
-        <li><strong>Name:</strong> <%=sched.name%></li>
-        <li><strong>Date:</strong> <%=sched.date%></li>
-        <li><strong>Location:</strong> <%=sched.location%></li>
-        <li><strong>Details:</strong> <%=sched.details%></li>
+    <div class="card">
+        <ul>
+            <li><strong>Name:</strong> <%=sched.name%></li>
+            <li><strong>Date:</strong> <%=sched.date%></li>
+            <li><strong>Location:</strong> <%=sched.location%></li>
+            <li><strong>Details:</strong> <%=sched.details%></li>
+            <li>
+                <form action="/scheds/<%= sched._id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete" />
+                </form>
 
-        <li><strong>Panda Fact:</strong> <%=panda.fact%></li>
-        <li>
-            <form action="/scheds/<%= sched._id %>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete" />
-            </form>
-        <li><a href="scheds/show">Show</a></li>
-        </li>
+            <li><a href="scheds/show">Show</a></li>
+            </li>
 
-    </ul>
+        </ul>
+    </div>
     <%})%> <%}%>
-
-
-
+    <div id="panda">
+            <hr>
+            <li><strong>Panda Fact:</strong> <%=panda.fact%></li>
+    </div>
 </body>
 
 </html>

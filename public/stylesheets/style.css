@@ -28,3 +28,20 @@ ul {
 strong {
   font-weight: 900;
 }
+
+.card {
+  /* background: blanchedalmond; */
+  border: dotted rgba(240, 240, 240, .7) 2px;
+}
+
+#panda {
+  list-style-type: none;
+  font-size: 24px;
+}
+
+.new {
+
+  font-weight: 900;
+  font-size: 20px;
+  color: rgba(240, 240, 240, .9);
+}
