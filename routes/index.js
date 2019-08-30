@@ -1,7 +1,6 @@
 var express = require('express');
 var passport = require('passport');
 var router = express.Router();
-
 const Sched = require('../models/sched')
 
 /* GET home page. */
@@ -14,6 +13,8 @@ router.get('/', function (req, res) {
     });
   })
 });
+
+
 
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(

@@ -28,6 +28,7 @@
         <li>Location: <%=sched.location%></li>
         <li>Details: <%=sched.details%></li>
         <li><a href="scheds/show">Show</a></li>
+
         <li>
             <form action="/scheds/<%= sched._id %>?_method=DELETE" method="POST">
                 <input type="submit" value="Delete" />
@@ -35,5 +36,9 @@
         </li>
     </ul>
     <%})%> <%}%>
-  </body>
+
+
+
+</body>
+
 </html>

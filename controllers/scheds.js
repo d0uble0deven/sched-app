@@ -1,5 +1,7 @@
 var Sched = require("../models/sched");
 // var User = require('../models/user');
+var rootURL = "https://some-random-api.ml/facts/panda";
+var request = require('request');
 
 module.exports = {
   index,
@@ -10,12 +12,19 @@ module.exports = {
   delete: deleteSched
 };
 
+//correct API call
 function index(req, res) {
-  Sched.find({}, function (Allscheds) {
-    res.render("index", {
-      scheds: Allscheds
+  request(rootURL, (err, response, fact) => {
+    var panda = JSON.parse(fact)
+    Sched.find({}, function (Allscheds) {
+      res.render("/scheds/index", {
+        user: req.user,
+        scheds: Allscheds,
+        panda
+      });
+      console.log(panda);
     });
-  });
+  })
 }
 
 function newSched(req, res) {
