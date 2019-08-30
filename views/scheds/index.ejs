@@ -17,22 +17,25 @@
             <% } %>
         </div>
     </header>
+    <%console.log(scheds)%>
     <h1>Scheduling App</h1>
-    <%if(scheds.length === 0) {%>
+    <%if(scheds && scheds.length===0) {%>
     <h3>No Upcoming Events</h3>
-    <%} else {%> <%scheds.forEach(function(sched, idx){%>
+    <%} else { scheds.forEach(function(sched, idx){%>
     <ul>
-        <li>Name: <%=sched.name%></li>
-        <li>Date: <%=sched.date%></li>
-        <li>Location: <%=sched.location%></li>
-        <li>Details: <%=sched.details%></li>
-        <li><a href="scheds/show">Show</a></li>
+        <li><strong>Name:</strong> <%=sched.name%></li>
+        <li><strong>Date:</strong> <%=sched.date%></li>
+        <li><strong>Location:</strong> <%=sched.location%></li>
+        <li><strong>Details:</strong> <%=sched.details%></li>
 
+        <li><strong>Panda Fact:</strong> <%=panda.fact%></li>
         <li>
             <form action="/scheds/<%= sched._id %>?_method=DELETE" method="POST">
                 <input type="submit" value="Delete" />
             </form>
+        <li><a href="scheds/show">Show</a></li>
         </li>
+
     </ul>
     <%})%> <%}%>
 

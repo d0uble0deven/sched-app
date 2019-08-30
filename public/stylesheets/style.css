@@ -2,25 +2,29 @@ body {
   padding: 50px;
   font: 14px Helvetica, Arial, sans-serif;
   background-color: cornflowerblue;
-  color: rgba(10, 10, 10, .7);
-  text-decoration: none;
+  color: rgba(240, 240, 240, .9);
 }
 
 a {
-  color: #00B7FF;
+  color: white;
+  font-size: 20px;
 }
 
 .navi {
   display: inline;
-  background-color: blanchedalmond;
-  padding: 5px;
-  margin: 5px;
 }
 
-login {
-  justify-self: flex-end;
-  flex-direction: row;
-  text-align: center;
-  vertical-align: middle;
-  align-content: center;
+
+h1 {
+  font-size: 100px;
+  font-weight: 900;
+}
+
+ul {
+  list-style-type: none;
+  font-size: 24px;
+}
+
+strong {
+  font-weight: 900;
 }
